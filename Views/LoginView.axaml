@@ -1,0 +1,19 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.LoginView"
+             Tag="Вход">
+  <StackPanel Spacing="16" MaxWidth="650" HorizontalAlignment="Left">
+    <TextBlock Classes="heading" Text="Вход в систему" />
+    <TextBlock Text="Введите логин и пароль или войдите как гость." />
+
+    <TextBox x:Name="LoginBox" PlaceholderText="Логин"
+             MinWidth="580" />
+    <TextBox x:Name="PasswordBox" PlaceholderText="Пароль"
+             PasswordChar="●" MinWidth="580" />
+
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Войти" Classes="accent" Click="LoginClick" />
+      <Button Content="Войти как гость" Click="GuestClick" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

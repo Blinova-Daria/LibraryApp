@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.LoansView">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="8">
+      <TextBlock x:Name="TitleText" Classes="heading" />
+      <TextBlock x:Name="CountText" />
+    </StackPanel>
+
+    <ListBox x:Name="LoansList">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Border Padding="12" Margin="0,4"
+                  Background="{StaticResource SurfaceBrush}">
+            <Grid ColumnDefinitions="*,220">
+              <StackPanel Spacing="4">
+                <TextBlock Text="{Binding BookTitle}" FontWeight="Bold" />
+                <TextBlock Text="{Binding Details}" />
+                <TextBlock Text="{Binding ReaderText}" />
+              </StackPanel>
+              <StackPanel Grid.Column="1" Spacing="6"
+                          VerticalAlignment="Center">
+                <TextBlock Text="{Binding StatusName}" FontWeight="Bold" />
+                <Button Content="{Binding ActionText}" Click="ActionClick"
+                        IsVisible="{Binding HasAction}" />
+              </StackPanel>
+            </Grid>
+          </Border>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>

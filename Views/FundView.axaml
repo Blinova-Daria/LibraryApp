@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.FundView">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="6">
+      <TextBlock Classes="heading" Text="Фонд: издания и экземпляры" />
+      <WrapPanel>
+        <TextBox x:Name="TitleBox" Watermark="Название издания" Width="260" Margin="0,0,6,6" />
+        <ComboBox x:Name="GenreBox" Width="170" Margin="0,0,6,6" />
+        <TextBox x:Name="YearBox" Watermark="Год" Width="80" Margin="0,0,6,6" />
+        <TextBox x:Name="PagesBox" Watermark="Страниц" Width="90" Margin="0,0,6,6" />
+        <Button Content="Добавить издание" Classes="accent" Click="AddBookClick" />
+      </WrapPanel>
+      <WrapPanel>
+        <TextBox x:Name="InvBox" Watermark="Инв. номер, например И-0046" Width="260" Margin="0,0,6,6" />
+        <TextBlock Text="выберите издание в списке и нажмите:" VerticalAlignment="Center" Margin="0,0,6,6" />
+        <Button Content="Добавить экземпляр" Click="AddCopyClick" />
+      </WrapPanel>
+    </StackPanel>
+    <ListBox x:Name="FundList">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Spacing="2" Margin="0,4">
+            <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+            <TextBlock Text="{Binding Details}" TextWrapping="Wrap" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>

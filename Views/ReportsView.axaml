@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.ReportsView">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="6">
+      <TextBlock Classes="heading" Text="Отчёты" />
+      <WrapPanel>
+        <TextBlock Text="Период с" VerticalAlignment="Center" Margin="0,0,6,6" />
+        <CalendarDatePicker x:Name="FromPicker" Margin="0,0,10,6" />
+        <TextBlock Text="по" VerticalAlignment="Center" Margin="0,0,6,6" />
+        <CalendarDatePicker x:Name="ToPicker" Margin="0,0,10,6" />
+        <Button Content="Отчёт о выдачах" Classes="accent" Click="LoansClick" Margin="0,0,6,6" />
+        <Button Content="Должники" Click="DebtorsClick" Margin="0,0,6,6" />
+        <Button Content="Сохранить в CSV" Click="SaveClick" Margin="0,0,6,6" />
+      </WrapPanel>
+      <TextBlock x:Name="CountText" />
+    </StackPanel>
+    <ListBox x:Name="ReportList">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Margin="0,3" />
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>

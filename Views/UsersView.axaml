@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.UsersView">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="8">
+      <TextBlock Classes="heading" Text="Пользователи и роли" />
+      <TextBlock Text="Назначьте роль каждому пользователю. Администратор не может снять роль сам с себя." />
+    </StackPanel>
+
+    <ListBox x:Name="UsersList">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="*,Auto" Margin="0,4">
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding FullName}" FontWeight="Bold" />
+              <TextBlock Text="{Binding Login}" />
+              <TextBlock Text="{Binding RoleName}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal"
+                        Spacing="6" VerticalAlignment="Center">
+              <Button Content="Читатель" Tag="Читатель"
+                      Click="RoleClick" />
+              <Button Content="Библиотекарь" Tag="Библиотекарь"
+                      Click="RoleClick" />
+              <Button Content="Администратор" Tag="Администратор"
+                      Click="RoleClick" />
+            </StackPanel>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>

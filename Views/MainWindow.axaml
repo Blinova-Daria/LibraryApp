@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="LibraryApp.Views.MainWindow"
+        Title="Библиотека"
+        Width="1120" Height="760" MinWidth="850" MinHeight="600"
+        Icon="avares://LibraryApp/Assets/app.ico">
+  <DockPanel>
+    <!-- 1. Шапка: логотип слева, ФИО и роль справа. -->
+    <Border DockPanel.Dock="Top" Padding="16"
+            Background="{StaticResource SurfaceBrush}">
+      <Grid ColumnDefinitions="Auto,*,Auto">
+        <Image Source="avares://LibraryApp/Assets/logo.png"
+               Width="250" Height="56" Stretch="Uniform" />
+        <TextBlock x:Name="UserText" Grid.Column="2"
+                   VerticalAlignment="Center" MaxWidth="480" />
+      </Grid>
+    </Border>
+
+    <!-- 2. Кнопки навигации: видимость зависит от роли. -->
+    <WrapPanel DockPanel.Dock="Top" Margin="12,6">
+      <Button x:Name="BackButton" Content="Назад" Click="BackClick" />
+      <Button x:Name="CatalogButton" Content="Каталог"
+              Click="CatalogClick" />
+      <Button x:Name="LoginButton" Content="Войти"
+              Click="LoginClick" />
+      <Button x:Name="MyLoansButton" Content="Мои выдачи"
+              Click="MyLoansClick" />
+      <Button x:Name="AllLoansButton" Content="Все выдачи"
+              Click="AllLoansClick" />
+      <Button x:Name="UsersButton" Content="Пользователи"
+              Click="UsersClick" />
+      <Button x:Name="ReadersButton" Content="Читатели"
+              Click="ReadersClick" />
+      <Button x:Name="FundButton" Content="Фонд"
+              Click="FundClick" />
+      <Button x:Name="ReportsButton" Content="Отчёты"
+              Click="ReportsClick" />
+      <Button x:Name="DictButton" Content="Справочники"
+              Click="DictClick" />
+      <Button x:Name="LogoutButton" Content="Выйти"
+              Click="LogoutClick" />
+    </WrapPanel>
+
+    <!-- 3. Строка сообщений: ошибки и подтверждения. -->
+    <TextBlock x:Name="MessageText" DockPanel.Dock="Top"
+               Margin="16,4" />
+
+    <!-- 4. Место для текущей страницы. -->
+    <ContentControl x:Name="PageHost" Margin="16" />
+  </DockPanel>
+</Window>

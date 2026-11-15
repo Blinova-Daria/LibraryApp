@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LibraryApp.Views.ReadersView">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="6">
+      <TextBlock Classes="heading" Text="Картотека читателей" />
+      <WrapPanel>
+        <TextBox x:Name="LastBox" Watermark="Фамилия" Width="140" Margin="0,0,6,6" />
+        <TextBox x:Name="FirstBox" Watermark="Имя" Width="120" Margin="0,0,6,6" />
+        <TextBox x:Name="LoginBox" Watermark="Логин" Width="120" Margin="0,0,6,6" />
+        <TextBox x:Name="TicketBox" Watermark="№ билета" Width="110" Margin="0,0,6,6" />
+        <ComboBox x:Name="GroupBox" Width="120" Margin="0,0,6,6" />
+        <TextBox x:Name="PhoneBox" Watermark="Телефон" Width="140" Margin="0,0,6,6" />
+        <TextBox x:Name="EmailBox" Watermark="Почта" Width="180" Margin="0,0,6,6" />
+        <Button Content="Добавить читателя" Classes="accent" Click="AddClick" />
+      </WrapPanel>
+      <TextBlock Text="Пароль нового читателя совпадает с логином; его можно сменить позже." />
+    </StackPanel>
+    <ListBox x:Name="ReadersList">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid ColumnDefinitions="*,170" Margin="0,4">
+            <StackPanel Spacing="2">
+              <TextBlock Text="{Binding FullName}" FontWeight="Bold" />
+              <TextBlock Text="{Binding Details}" TextWrapping="Wrap" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="4" VerticalAlignment="Center">
+              <TextBlock Text="{Binding StatusText}" />
+              <Button Content="{Binding ToggleText}" Click="ToggleClick" />
+            </StackPanel>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </DockPanel>
+</UserControl>
