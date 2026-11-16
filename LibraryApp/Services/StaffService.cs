@@ -217,9 +217,17 @@ public static class StaffService
             join s in db.LoanStatuses on l.StatusId equals s.StatusId
             where l.BookingDate >= dateFrom && l.BookingDate <= dateTo
             orderby l.BookingDate, l.LoanId
-            select new { l.LoanId, l.BookingDate, l.DueDate, b.Title,
-                         c.InventoryNumber, u.LastName, u.FirstName,
-                         s.StatusName }).AsNoTracking().ToListAsync();
+            select new
+            {
+                l.LoanId,
+                l.BookingDate,
+                l.DueDate,
+                b.Title,
+                c.InventoryNumber,
+                u.LastName,
+                u.FirstName,
+                s.StatusName
+            }).AsNoTracking().ToListAsync();
 
         return raw.Select(r => new ReportLine
         {
@@ -243,8 +251,16 @@ public static class StaffService
             where (l.StatusId == StatusIssued || l.StatusId == StatusRenewed)
                   && l.DueDate < today
             orderby l.DueDate
-            select new { l.LoanId, l.DueDate, b.Title, c.InventoryNumber,
-                         u.LastName, u.FirstName, u.Phone })
+            select new
+            {
+                l.LoanId,
+                l.DueDate,
+                b.Title,
+                c.InventoryNumber,
+                u.LastName,
+                u.FirstName,
+                u.Phone
+            })
             .AsNoTracking().ToListAsync();
 
         return raw.Select(r => new ReportLine
